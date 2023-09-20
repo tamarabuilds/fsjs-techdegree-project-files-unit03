@@ -13,3 +13,26 @@
 //    - Disable the checkbox currently being looped over.
 //  - Else:
 //    - Do not change its state.
+
+const form = document.querySelector('form')
+
+form.addEventListener('change', (e)=> {
+    const checkbox = e.target
+    console.log(e)
+    const combatStyle = checkbox.dataset.combatStyle
+    const sameCombatStyle = document.querySelectorAll(`input[data-combat-style=${combatStyle}]`)
+    console.log(sameCombatStyle)
+
+    for ( let i = 0; i < sameCombatStyle.length; i++ ){
+        // My solution
+        // if ( checkbox !== sameCombatStyle[i] && checkbox.checked){
+        //     console.log(sameCombatStyle[i])
+        //     sameCombatStyle[i].disabled = true
+        // }
+
+        // Other solution:
+        const conflictingCheckbox = sameCombatStyle[i]
+        conflictingCheckbox.disabled = checkbox.checked && conflictingCheckbox !== checkbox
+    }
+
+})
