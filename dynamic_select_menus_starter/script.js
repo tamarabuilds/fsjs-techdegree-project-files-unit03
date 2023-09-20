@@ -4,23 +4,25 @@
 
 // 1: select the animals select element and store it in a variable
 const animalSelect = document.querySelector("#animals")
-console.log(animalSelect)
+// console.log(animalSelect)
+
 
 // 2: select the breeds select element and store it in a variable
 const breedSelect = document.querySelector("#breeds")
-console.log(breedSelect)
+// console.log(breedSelect)
 
 // 3: select all of the option elements with a [data-theme] attribute and store them in a variable
 const breedOptions = document.querySelectorAll("option[data-breed]")
-console.log(breedOptions)
+// console.log(breedOptions)
 
 // 4: add an event listener on the animals select element that listens for the "change" event
 animalSelect.addEventListener('change', (e)=> {
+  console.log(`animalSelect.value is ${animalSelect.value}`)
   //   5: start a loop to iterate over each breed option
   for ( let i = 0; i < breedOptions.length; i++){
     //     6: check if the animals select value is not equal to the current breed option's data-breed attribute value
     if ( animalSelect.value !== breedOptions[i].getAttribute('data-breed')){
-      console.log(`no match`)
+      // console.log(`no match`)
       //       7: if they are not equal, hide the current breed option
       // Learned how to set the hidden attribute on stack overflow: https://stackoverflow.com/questions/20518143/hiding-an-element-difference-between-javascript-attribute-and-css-style
       // breedOptions[i].setAttribute("hidden", true)
